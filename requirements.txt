@@ -5,3 +5,15 @@ matplotlib
 seaborn
 tqdm
 requests
+hopsworks
+streamlit
+shap
+python-dotenv
+pyyaml
+fastapi
+uvicorn
+xgboost
+joblib
+altair
+plotly
+httpx

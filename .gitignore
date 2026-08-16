@@ -1,1 +1,47 @@
+# ============================================
+# Virtual Environment & IDE
+# ============================================
+venv/
+.venv/
+.idea/
+.vscode/
+*.pyc
+__pycache__/
+.claude/
+
+# ============================================
+# Environment Variables & Secrets (CRITICAL)
+# ============================================
 .env
+.env.*
+!.env.example
+
+# ============================================
+# OS / System Files
+# ============================================
+.DS_Store
+Thumbs.db
+desktop.ini
+
+# ============================================
+# Model Artifacts (large binaries)
+# ============================================
+models/temp_hopsworks_upload/
+models/gradient_boosting_v_*/
+
+# ============================================
+# Data Monitoring Logs (auto-generated)
+# ============================================
+data/monitoring/predictions_log.csv
+
+# ============================================
+# Jupyter Notebook Checkpoints
+# ============================================
+.ipynb_checkpoints/
+
+# ============================================
+# Distribution / Build
+# ============================================
+*.egg-info/
+dist/
+build/

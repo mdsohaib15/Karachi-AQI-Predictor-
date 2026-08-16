@@ -1,0 +1,206 @@
+# city, API keys (via env), feature store project name
+# ==========================================
+# PM2.5 Prediction Project Configuration
+# ==========================================
+
+# ------------------------------------------
+# Data Configuration
+# ------------------------------------------
+data:
+  raw_data_path: "data/raw/"
+  processed_data_path: "data/processed/"
+  train_data_path: "data/processed/train.csv"
+  test_data_path: "data/processed/test.csv"
+
+  datetime_column: "datetime"
+  target_column: "target_pm25"
+
+  # Raw/extracted features
+  weather_features:
+    - datetime
+    - temperature_2m
+    - relative_humidity_2m
+    - dew_point_2m
+    - apparent_temperature
+    - precipitation
+    - rain
+    - surface_pressure
+    - cloud_cover
+    - wind_speed_10m
+    - wind_direction_10m
+
+  air_quality_features:
+    - PM2.5
+    - PM10
+    - NO2
+    - SO2
+    - CO
+    - O3
+
+
+# ------------------------------------------
+# Feature Engineering Configuration
+# ------------------------------------------
+features:
+
+  # Time features created from datetime
+  time_features:
+    enabled: true
+    columns:
+      - year
+      - month
+      - day
+      - hour
+      - weekday
+      - is_weekend
+
+  # Lag features
+  lag_features:
+    enabled: true
+    target: "PM2.5"
+    lags:
+      - 24
+      - 48
+      - 72
+      - 168
+
+  # Rolling window features
+  rolling_features:
+    enabled: true
+    target: "PM2.5"
+
+    windows:
+      - 24
+      - 72
+
+    statistics:
+      - mean
+      - std
+
+  # Interaction features
+  interaction_features:
+    enabled: true
+
+    features:
+      temp_humidity:
+        type: "multiply"
+        columns:
+          - temperature_2m
+          - relative_humidity_2m
+
+      wind_pm25:
+        type: "multiply"
+        columns:
+          - wind_speed_10m
+          - PM.2.5
+
+  # Cyclic encoding
+  cyclic_features:
+    enabled: true
+
+    hour:
+      period: 24
+      features:
+        - hour_sin
+        - hour_cos
+
+    month:
+      period: 12
+      features:
+        - month_sin
+        - month_cos
+
+
+# ------------------------------------------
+# Target Configuration
+# ------------------------------------------
+target:
+  column: "target_pm25"
+
+  # Example:
+  # Predict PM2.5 one hour into the future
+  shift: -1
+
+  source_column: "PM2.5"
+
+
+# ------------------------------------------
+# Data Cleaning
+# ------------------------------------------
+preprocessing:
+
+  missing_values:
+    # strategy: "" (for later pipeline)
+
+  duplicates:
+    remove: true
+
+  datetime:
+    sort: true
+    timezone: "UTC"
+
+  outliers:
+    enabled: false
+    # method: "" (for later pipeline) 
+
+
+# ------------------------------------------
+# Train / Test Split
+# ------------------------------------------
+split:
+  method: "time_based"
+  # (for later pipeline)
+  # train_ratio: 0.8
+  # test_ratio: 0.2
+
+  shuffle: false
+
+
+# ------------------------------------------
+# Scaling
+# ------------------------------------------
+scaling:
+  enabled: true
+  method: "standard"
+
+  exclude:
+    - datetime
+    - target_pm25
+
+
+# ------------------------------------------
+# Model Configuration
+# ------------------------------------------
+# model:
+#   # for later pipeline (best model from train_pipeline.py)
+#   # name: "RandomForestRegressor" 
+
+#   parameters:
+#     n_estimators: 200
+#     max_depth: 20
+#     min_samples_split: 2
+#     min_samples_leaf: 1
+#     random_state: 42
+#     n_jobs: -1
+
+
+# ------------------------------------------
+# Evaluation
+# ------------------------------------------
+evaluation:
+  metrics:
+    - MAE
+    - RMSE
+    - R2
+
+  save_predictions: true
+  predictions_path: "results/predictions.csv"
+
+
+# ------------------------------------------
+# Output Configuration
+# ------------------------------------------
+output:
+  model_path: "models/pm25_model.pkl"
+  feature_importance_path: "results/feature_importance.csv"
+  metrics_path: "results/metrics.json"

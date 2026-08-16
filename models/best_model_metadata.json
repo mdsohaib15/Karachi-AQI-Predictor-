@@ -1,0 +1,33 @@
+{
+  "model_name": "Gradient Boosting",
+  "version": "20260816_141324",
+  "saved_at": "2026-08-16T09:13:24.607859Z",
+  "metrics": {
+    "MAE": 1.4989,
+    "RMSE": 2.3945,
+    "R2": 0.9113
+  },
+  "num_features": 18,
+  "features": [
+    "PM2.5",
+    "pm25_roll_mean_24",
+    "pm25_roll_mean_72",
+    "pm25_lag_24",
+    "PM10",
+    "CO",
+    "pm25_roll_std_24",
+    "pm25_roll_std_72",
+    "SO2",
+    "NO2",
+    "wind_pm25",
+    "pm25_lag_48",
+    "pm25_lag_72",
+    "month_cos",
+    "temp_humidity",
+    "surface_pressure",
+    "apparent_temperature",
+    "wind_speed_10m"
+  ],
+  "hyperparameters": {},
+  "is_champion": true
+}
