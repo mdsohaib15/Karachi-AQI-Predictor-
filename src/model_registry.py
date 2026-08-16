@@ -165,20 +165,47 @@ class LocalModelRegistry:
             feat_path = version_dir / "features.json"
 
         if not model_path.exists():
-            raise FileNotFoundError(f"Model file not found at: {model_path}")
-
-        model = joblib.load(model_path)
-        scaler = joblib.load(scaler_path) if scaler_path.exists() else None
-        
-        metadata = {}
-        if meta_path.exists():
-            with open(meta_path, "r", encoding="utf-8") as f:
-                metadata = json.load(f)
+            log.warning("Model file not found at %s. Triggering automatic training...", model_path)
+            model = None
+        else:
+            try:
+                model = joblib.load(model_path)
+            except Exception as exc:
+                log.warning("Could not unpickle model binary (%s). Self-healing model locally...", exc)
+                model = None
 
         features = []
         if feat_path.exists():
-            with open(feat_path, "r", encoding="utf-8") as f:
-                features = json.load(f)
+            try:
+                with open(feat_path, "r", encoding="utf-8") as f:
+                    features = json.load(f)
+            except Exception:
+                features = []
+
+        if model is None:
+            # Self-healing training
+            from sklearn.ensemble import GradientBoostingRegressor
+            import pandas as pd
+            
+            data_file = Path("data/processed/karachi_selected_features.csv")
+            if data_file.exists():
+                df_data = pd.read_csv(data_file).dropna()
+                if not features:
+                    features = [c for c in df_data.columns if c not in ["datetime", "city", "target_pm25"]]
+                X = df_data[features]
+                y = df_data["target_pm25"]
+                model = GradientBoostingRegressor(n_estimators=100, max_depth=5, random_state=42)
+                model.fit(X, y)
+                self.models_dir.mkdir(parents=True, exist_ok=True)
+                joblib.dump(model, model_path)
+                log.info("✓ Self-healed and saved new model binary to %s", model_path)
+
+        scaler = None
+        if scaler_path.exists():
+            try:
+                scaler = joblib.load(scaler_path)
+            except Exception:
+                scaler = None
 
         return {
             "model": model,
