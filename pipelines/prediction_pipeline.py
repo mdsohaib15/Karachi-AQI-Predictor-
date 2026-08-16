@@ -29,7 +29,7 @@ PROJECT_ROOT = Path(__file__).resolve().parent.parent
 if str(PROJECT_ROOT) not in sys.path:
     sys.path.insert(0, str(PROJECT_ROOT))
 
-from src.predict import AQIPredictor, get_aqi_category
+from src.predict import AQIPredictor
 
 logging.basicConfig(
     level=logging.INFO,
