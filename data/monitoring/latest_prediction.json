@@ -1,7 +1,7 @@
 {
-  "prediction_time": "2026-08-22T13:37:05.227332+00:00Z",
-  "input_timestamp": "2026-08-22 13:00:00+00:00",
-  "current_pm25": 20.4,
+  "prediction_time": "2026-08-22T14:28:00.180221+00:00Z",
+  "input_timestamp": "2026-08-22 14:00:00+00:00",
+  "current_pm25": 20.2,
   "predicted_next_hour_pm25": 20.38,
   "aqi_category": "Moderate",
   "color_code": "#f1c40f",
