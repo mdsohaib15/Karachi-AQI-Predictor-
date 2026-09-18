@@ -1,8 +1,8 @@
 {
-  "prediction_time": "2026-09-17T23:29:09.627724+00:00Z",
-  "input_timestamp": "2026-09-17 23:00:00+00:00",
-  "current_pm25": 16.8,
-  "predicted_next_hour_pm25": 16.92,
+  "prediction_time": "2026-09-18T04:12:49.332570+00:00Z",
+  "input_timestamp": "2026-09-18 04:00:00+00:00",
+  "current_pm25": 17.6,
+  "predicted_next_hour_pm25": 17.66,
   "aqi_category": "Moderate",
   "color_code": "#f1c40f",
   "health_advisory": "Air quality is acceptable; moderate health concern for sensitive individuals.",
