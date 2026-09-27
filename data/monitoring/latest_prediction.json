@@ -1,8 +1,8 @@
 {
-  "prediction_time": "2026-09-26T22:36:52.340116+00:00Z",
-  "input_timestamp": "2026-09-26 22:00:00+00:00",
-  "current_pm25": 10.2,
-  "predicted_next_hour_pm25": 11.12,
+  "prediction_time": "2026-09-27T01:16:37.611458+00:00Z",
+  "input_timestamp": "2026-09-27 01:00:00+00:00",
+  "current_pm25": 10.7,
+  "predicted_next_hour_pm25": 11.43,
   "aqi_category": "Good",
   "color_code": "#00e400",
   "health_advisory": "Air quality is considered satisfactory.",
