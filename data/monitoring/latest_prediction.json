@@ -1,10 +1,10 @@
 {
-  "prediction_time": "2026-10-04T17:24:51.068493+00:00Z",
-  "input_timestamp": "2026-10-04 17:00:00+00:00",
-  "current_pm25": 11.6,
-  "predicted_next_hour_pm25": 12.01,
-  "aqi_category": "Moderate",
-  "color_code": "#f1c40f",
-  "health_advisory": "Air quality is acceptable; moderate health concern for sensitive individuals.",
+  "prediction_time": "2026-10-04T21:09:36.909386+00:00Z",
+  "input_timestamp": "2026-10-04 21:00:00+00:00",
+  "current_pm25": 9.7,
+  "predicted_next_hour_pm25": 10.08,
+  "aqi_category": "Good",
+  "color_code": "#00e400",
+  "health_advisory": "Air quality is considered satisfactory.",
   "champion_model": "Gradient Boosting"
 }
