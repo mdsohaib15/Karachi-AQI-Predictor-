@@ -1,8 +1,8 @@
 {
-  "prediction_time": "2026-10-15T18:09:36.332409+00:00Z",
-  "input_timestamp": "2026-10-15 18:00:00+00:00",
-  "current_pm25": 36.8,
-  "predicted_next_hour_pm25": 37.13,
+  "prediction_time": "2026-10-15T22:04:42.314830+00:00Z",
+  "input_timestamp": "2026-10-15 22:00:00+00:00",
+  "current_pm25": 45.8,
+  "predicted_next_hour_pm25": 44.85,
   "aqi_category": "Unhealthy for Sensitive Groups",
   "color_code": "#ff7e00",
   "health_advisory": "Members of sensitive groups may experience health effects.",
