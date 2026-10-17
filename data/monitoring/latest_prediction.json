@@ -1,7 +1,7 @@
 {
-  "prediction_time": "2026-10-17T16:16:31.007608+00:00Z",
-  "input_timestamp": "2026-10-17 16:00:00+00:00",
-  "current_pm25": 44.6,
+  "prediction_time": "2026-10-17T19:10:17.593845+00:00Z",
+  "input_timestamp": "2026-10-17 19:00:00+00:00",
+  "current_pm25": 44.1,
   "predicted_next_hour_pm25": 43.95,
   "aqi_category": "Unhealthy for Sensitive Groups",
   "color_code": "#ff7e00",
