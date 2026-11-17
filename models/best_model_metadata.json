@@ -1,7 +1,7 @@
 {
   "model_name": "Gradient Boosting",
-  "version": "20261116_090624",
-  "saved_at": "2026-11-16T09:06:24.409579Z",
+  "version": "20261117_101822",
+  "saved_at": "2026-11-17T10:18:22.815671Z",
   "metrics": {
     "MAE": 1.4981,
     "RMSE": 2.3943,
