@@ -1,10 +1,10 @@
 {
-  "prediction_time": "2026-11-20T11:12:27.843646+00:00Z",
-  "input_timestamp": "2026-11-20 11:00:00+00:00",
-  "current_pm25": 39.5,
-  "predicted_next_hour_pm25": 38.71,
-  "aqi_category": "Unhealthy for Sensitive Groups",
-  "color_code": "#ff7e00",
-  "health_advisory": "Members of sensitive groups may experience health effects.",
+  "prediction_time": "2026-11-20T19:52:51.072492+00:00Z",
+  "input_timestamp": "2026-11-20 19:00:00+00:00",
+  "current_pm25": 64.7,
+  "predicted_next_hour_pm25": 60.37,
+  "aqi_category": "Unhealthy",
+  "color_code": "#ff0000",
+  "health_advisory": "Everyone may begin to experience health effects.",
   "champion_model": "Gradient Boosting"
 }
